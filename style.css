@@ -1,0 +1,607 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2C0603;
+    --secondary-color: #EFEBE2;
+    --accent-color: #8B2E2B;
+    --text-light: #EFEBE2;
+    --text-dark: #2C0603;
+    --shadow: 0 4px 20px rgba(44, 6, 3, 0.15);
+    --shadow-lg: 0 8px 30px rgba(44, 6, 3, 0.25);
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #4a1410 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(139, 46, 43, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(239, 235, 226, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 30px 0 20px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--secondary-color);
+    opacity: 0.8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Challenge Container */
+.challenge-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.challenge-card {
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    border-radius: 24px;
+    padding: 40px 30px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.challenge-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(44, 6, 3, 0.03) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+.challenge-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.challenge-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.challenge-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--text-dark);
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/* Stats */
+.stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.stat-item {
+    background: rgba(239, 235, 226, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(239, 235, 226, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.stat-item:active {
+    transform: scale(0.95);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    opacity: 0.7;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Action Buttons Container */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.action-buttons.hidden {
+    display: none;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-complete,
+.btn-skip {
+    border: none;
+    border-radius: 50px;
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+}
+
+.btn-primary {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.btn-complete {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    color: white;
+}
+
+.btn-skip {
+    background: rgba(239, 235, 226, 0.2);
+    color: var(--secondary-color);
+    border: 2px solid rgba(239, 235, 226, 0.3);
+}
+
+.btn-primary::before,
+.btn-complete::before,
+.btn-skip::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:active::before,
+.btn-complete:active::before,
+.btn-skip:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary:active,
+.btn-complete:active,
+.btn-skip:active {
+    transform: scale(0.95);
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:active .btn-icon {
+    transform: translateX(5px);
+}
+
+.btn-nav {
+    background: rgba(239, 235, 226, 0.15);
+    color: var(--secondary-color);
+    border: 2px solid rgba(239, 235, 226, 0.3);
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.btn-nav:not(:disabled):active {
+    transform: scale(0.95);
+    background: rgba(239, 235, 226, 0.25);
+}
+
+.btn-nav-next {
+    background: rgba(239, 235, 226, 0.25);
+    border-color: rgba(239, 235, 226, 0.4);
+}
+
+/* Bar Progress */
+.bar-progress {
+    background: rgba(239, 235, 226, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(239, 235, 226, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-out 0.6s both;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bar-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.bar-navigation {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.progress-bar {
+    background: rgba(44, 6, 3, 0.4);
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--secondary-color) 0%, #c4b89c 100%);
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    animation: fadeIn 0.8s ease-out 0.8s both;
+}
+
+.footer-small {
+    font-size: 0.75rem;
+    margin-top: 5px;
+    opacity: 0.5;
+}
+
+/* Confetti Canvas */
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* WhatsApp Share Modal */
+.share-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(44, 6, 3, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.share-modal-overlay.show {
+    opacity: 1;
+}
+
+.share-modal {
+    background: var(--secondary-color);
+    border-radius: 24px;
+    padding: 40px 30px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.share-modal-overlay.show .share-modal {
+    transform: scale(1);
+}
+
+.share-modal-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.share-modal-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.share-modal-text {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.btn-whatsapp:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-icon {
+    font-size: 1.4rem;
+}
+
+.btn-close-modal {
+    background: transparent;
+    color: var(--text-dark);
+    border: none;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.btn-close-modal:active {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Card flip animation */
+@keyframes flipIn {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+.challenge-card.flipping {
+    animation: flipIn 0.6s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 375px) {
+    .logo h1 {
+        font-size: 1.7rem;
+    }
+    
+    .subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .challenge-card {
+        padding: 30px 20px;
+        min-height: 280px;
+    }
+    
+    .challenge-text {
+        font-size: 1.1rem;
+    }
+    
+    .btn-primary {
+        padding: 18px 35px;
+        font-size: 1.1rem;
+    }
+    
+    .bar-name {
+        font-size: 1.1rem;
+    }
+    
+    .btn-nav {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+    }
+}
+
+@media (min-height: 800px) {
+    .challenge-card {
+        min-height: 380px;
+    }
+}
