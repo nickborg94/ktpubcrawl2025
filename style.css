@@ -98,6 +98,8 @@ body::before {
     overflow: hidden;
     animation: fadeInUp 0.8s ease-out;
     transition: transform 0.3s ease;
+    cursor: pointer;
+    user-select: none;
 }
 
 .challenge-card::before {
@@ -488,6 +490,136 @@ body::before {
 
 .btn-close-modal:active {
     opacity: 1;
+}
+
+/* Toast with undo button */
+.toast-undo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 16px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(44, 6, 3, 0.3);
+  z-index: 10000;
+  transition: transform 0.5s ease;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toast-undo-btn {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Lato', sans-serif;
+}
+
+.toast-undo-btn:hover {
+  transform: scale(1.05);
+}
+
+.toast-undo-btn:active {
+  transform: scale(0.95);
+}
+
+/* Reset button */
+.btn-reset {
+  margin-top: 20px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid var(--text-secondary);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-reset:hover {
+  background: var(--text-secondary);
+  color: var(--bg-primary);
+  transform: scale(1.05);
+}
+
+.btn-reset:active {
+  transform: scale(0.95);
+}
+
+/* Pulse animation for next bar button */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(139, 46, 43, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(139, 46, 43, 0.5);
+  }
+}
+
+.btn-nav-next.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Install chip */
+.install-chip {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--accent-color);
+  color: var(--primary-color);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 20px rgba(139, 46, 43, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.install-chip.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+.install-chip:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 6px 25px rgba(139, 46, 43, 0.5);
+}
+
+.install-chip-close {
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.install-chip-close:hover {
+  transform: scale(1.2);
 }
 
 /* Animations */

@@ -1,87 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>KonnektTalexio Pub Crawl 2025</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <h1>KonnektTalexio</h1>
-                <p class="subtitle">Pub Crawl 2025</p>
-            </div>
-        </header>
+      <!-- Header -->
+      <header class="header">
+        <div class="logo">
+          <h1>KonnektTalexio</h1>
+          <p class="subtitle">Pub Crawl 2025</p>
+        </div>
+      </header>
 
-        <!-- Challenge Card -->
-        <main class="challenge-container">
-            <div class="challenge-card" id="challengeCard">
-                <div class="challenge-icon">🍻</div>
-                <h2 class="challenge-title">Your Challenge</h2>
-                <div class="challenge-text" id="challengeText">
-                    Tap the button below to reveal your challenge!
-                </div>
-            </div>
+      <!-- Challenge Card -->
+      <main class="challenge-container">
+        <div class="challenge-card" id="challengeCard">
+          <div class="challenge-icon">🍻</div>
+          <h2 class="challenge-title">Your Challenge</h2>
+          <div class="challenge-text" id="challengeText">
+            Tap the button below to reveal your challenge!
+          </div>
+        </div>
 
-            <!-- Stats -->
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number" id="challengeCount">0</div>
-                    <div class="stat-label">Completed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="currentBar">1</div>
-                    <div class="stat-label">Current Bar</div>
-                </div>
-            </div>
+        <!-- Stats -->
+        <div class="stats-container">
+          <div class="stat-item">
+            <div class="stat-number" id="challengeCount">0</div>
+            <div class="stat-label">Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="currentBar">1</div>
+            <div class="stat-label">Current Bar</div>
+          </div>
+        </div>
 
-            <!-- Action Buttons -->
-            <div class="action-buttons" id="actionButtons">
-                <button class="btn-primary" id="newChallengeBtn">
-                    <span class="btn-text">Get Challenge</span>
-                    <span class="btn-icon">→</span>
-                </button>
-            </div>
-            
-            <div class="action-buttons hidden" id="challengeActions">
-                <button class="btn-complete" id="completeBtn">
-                    <span class="btn-text">✓ Complete</span>
-                </button>
-                <button class="btn-skip" id="skipBtn">
-                    <span class="btn-text">Skip</span>
-                </button>
-            </div>
+        <!-- Action Buttons -->
+        <div class="action-buttons" id="actionButtons">
+          <button class="btn-primary" id="newChallengeBtn">
+            <span class="btn-text">Reveal Challenge</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </div>
 
-            <!-- Bar Progress -->
-            <div class="bar-progress">
-                <div class="progress-header">
-                    <span>Current Location</span>
-                    <span id="barIndicator">Bar 1 of 4</span>
-                </div>
-                <div class="bar-name" id="barName">City of London</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="bar-navigation">
-                    <button class="btn-nav" id="prevBarBtn">← Previous</button>
-                    <button class="btn-nav btn-nav-next" id="nextBarBtn">Next Bar →</button>
-                </div>
-            </div>
-        </main>
+        <div class="action-buttons hidden" id="challengeActions">
+          <button class="btn-complete" id="completeBtn">
+            <span class="btn-text">✓ Complete</span>
+          </button>
+          <button class="btn-skip" id="skipBtn">
+            <span class="btn-text">New one</span>
+          </button>
+        </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>🎉 Have fun & stay safe!</p>
-            <p class="footer-small">KonnektTalexio 2025</p>
-        </footer>
+        <!-- Bar Progress -->
+        <div class="bar-progress">
+          <div class="progress-header">
+            <span>Current Location</span>
+            <span id="barIndicator">Bar 1 of 4</span>
+          </div>
+          <div class="bar-name" id="barName">City of London</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="bar-navigation">
+            <button class="btn-nav" id="prevBarBtn">← Previous</button>
+            <button class="btn-nav btn-nav-next" id="nextBarBtn">
+              Next Bar →
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>🎉 Have fun & stay safe!</p>
+        <p class="footer-small">KonnektTalexio 2025</p>
+        <button class="btn-reset" id="resetBtn">🔄 Reset for Tonight</button>
+      </footer>
     </div>
 
     <!-- Confetti Canvas (hidden by default) -->
@@ -90,5 +99,5 @@
     <script src="challenges.js"></script>
     <script src="confetti.js"></script>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
